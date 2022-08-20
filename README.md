@@ -6,7 +6,11 @@ Combine Calamity is a side-scrolling hack and slash adventure where you play as 
 
 ## Controls
 
-## Build From Source
+## Build or Run
+
+Build the WASM file by running `cargo build` in the root directory of this project.
+
+Optionally, if you install `wasm-server-runner` you can run the game using `cargo run` and it'll build and run. The terminal will give the localhost and port address to access the game from.
 
 ## Bevy Game Jam
 
