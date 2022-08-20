@@ -15,3 +15,19 @@ Optionally, if you install `wasm-server-runner` you can run the game using `carg
 ## Bevy Game Jam
 
 Combine Calamity was created as part of the [Bevy Game Jam #2](https://itch.io/jam/bevy-jam-2). Per the rules this game is built using Rust and the Bevy game engine.
+
+## TODO
+
+### Main Menu
+[ ] Add interactions for the buttons
+[x] Debug repeated buttons
+[x] Add Image
+[ ] Debug Image rendering
+[x] Add Title
+[ ] Add Audio
+
+### Character
+
+### Enemies
+
+### Scene
