@@ -1,24 +1,26 @@
 use bevy::prelude::*;
+mod ui;
 
-mod main_menu;
-
-use main_menu::MainMenuPlugin;
-
-pub const CLEAR: Color = Color::rgb(0.1, 0.1, 0.1);
-// Use this MainCamera as the camera through out the code. Bevy will complain if multiple cameras are used.
-#[derive(Component)]
-pub struct MainCamera;
-
-#[derive(Debug, Clone, PartialEq, Eq, Hash, Copy)]
-pub enum GameState {
-    MainMenu,
-    InGame,
+// Enum that will be used as a global state for the game
+#[derive(Clone, Eq, PartialEq, Debug, Hash)]
+enum GameState {
+    Splash,
+    Menu,
+    Game,
+    Pause,
 }
+
 pub fn main() {
     App::new()
-        .add_state(GameState::MainMenu)
-        .insert_resource(ClearColor(CLEAR))
-        .add_plugin(MainMenuPlugin)
         .add_plugins(DefaultPlugins)
+        .add_startup_system(setup)
+        // Declare the game state, and set its startup value
+        .add_state(GameState::Splash)
+        // Adds the plugins for each state
+        .add_plugin(ui::UIPlugin)
         .run();
+}
+
+fn setup(mut commands: Commands) {
+    commands.spawn_bundle(Camera2dBundle::default());
 }
