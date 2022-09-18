@@ -126,6 +126,7 @@ fn main() {
         .run();
 }
 
+
 fn spawn_player_sprite(
     mut commands: Commands,
     asset_server: Res<AssetServer>,
@@ -154,6 +155,14 @@ fn setup(
         .insert(ParallaxCameraComponent);
 
     /*
+    commands
+        .spawn_bundle(SpriteSheetBundle {
+            texture_atlas: texture_atlas_handle,
+            transform: Transform::from_xyz(-530., -300., 10.).with_scale(Vec3::splat(1.)),
+            ..default()
+        })
+        .insert(AnimationTimer(Timer::from_seconds(0.10, true)));
+
     commands.spawn_bundle(SpriteBundle {
         sprite: Sprite {
             custom_size: Some(Vec2::new(1280.0, 720.0)),
@@ -221,6 +230,8 @@ fn setup(
         },
         texture: asset_server.load("hill/hill6.png"),
         transform: Transform::from_xyz(0.0, 0.0, 20.0),
+        texture: asset_server.load("hill/hill2.png"),
+        transform: Transform::from_xyz(0.0, 0.0, 1.0),
         ..default()
     });
     */
@@ -234,7 +245,6 @@ fn setup(
         transform: Transform::from_xyz(-490.0, 200.0, 1.0),
         ..default()
     });
-}
 
 fn change_clear_color(input: Res<Input<KeyCode>>, mut clear_color: ResMut<ClearColor>) {
     if input.just_pressed(KeyCode::Space) {
